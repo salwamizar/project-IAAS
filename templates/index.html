@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetEZ Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+20&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+20&family=Jersey+25&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="custom-dropdown">
+            <h2>Select Basic Configuration</h2>
+            <button class="dropdown-btn">SSID & Password</button>
+            <ul class="dropdown-list">
+                <li>SSID & Password</li>
+                <li>Firewall</li>
+                <li>Monitoring Client</li>
+                <li>Bandwidth Limitation</li>
+                <li><a href="{{ url_for('disable') }}">Enable/Disable Interface</a></li>
+                <li><a href="{{ url_for('backup') }}">Backup Configuration</a></li>
+            </ul>
+        </div>  
+    </div>
+
+    <div class="main-content">
+        <h1 class="logo"><span class="blue">Net</span><span class="black">EZz</span></h1>
+        <h2>SSID & Password</h2>
+        <form>
+            <input type="text" placeholder="SSID" required>
+            <input type="password" placeholder="Password" required>
+            <div class="buttons">
+                <button type="button" class="cancel">Cancel</button>
+                <button type="submit" class="save">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetEZ Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='backup-styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+20&family=Jersey+25&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="custom-dropdown">
+            <h2>Select Basic Configuration</h2>
+            <button class="dropdown-btn">Backup Configuration</button>
+            <ul class="dropdown-list">
+                <li><a href="{{ url_for('index') }}">SSID & Password</a></li>
+                <li>Firewall</li>
+                <li>Monitoring Client</li>
+                <li>Bandwidth Limitation</li>
+                <li><a href="{{ url_for('disable') }}">Enable/Disable Interface</a></li>
+                <li><a href="{{ url_for('backup') }}">Backup Configuration</a></li>
+            </ul>
+        </div>  
+    </div>
+
+    <div class="main-content">
+        <h1 class="logo"><span class="blue">Net</span><span class="black">EZz</span></h1>
+        <h2>Backup Configuration</h2>
+        <form class="buttons">
+            <input type="text" placeholder="New Backup">
+            <button type="button" class="backup">Backup</button><br>
+        </form>
+
+        <div class="actions">
+            <button class="cancel">Cancel</button>
+            <button class="download">Download</button>
+            <button class="restore">Restore</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
