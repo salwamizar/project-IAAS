@@ -15,13 +15,36 @@
     <form>
         <h1 class="logo"><span class="blue">Net</span><span class="black">EZz</span></h1>
         <h2>Aplikasi Konfigurasi Mikrotik</h2>
-        <input type="text" placeholder="IP Address" required><br>
-        <input type="text" placeholder="User" required><br>
-        <input type="password" placeholder="Password" required><br>
+        <input type="text" id="ip" placeholder="IP Address" required><br>
+        <input type="text" id="username" placeholder="User" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
         <div class="buttons">
-        <button type="button" class="connect">Connect</button>
+        <button type="button" class="connect" onclick="login()">Connect</button>
         </div>
     </form>
    </div>
+   <script>
+    function login() {
+        const ip = document.getElementById("ip").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+    
+        fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ip, username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                alert("Login Berhasil!"); // Notifikasi sukses
+                window.location.href = "/dashboard"; // Redirect ke halaman dashboard
+            } else {
+                alert("Login Gagal: " + data.error); // Notifikasi error
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>    
 </body>
 </html>
